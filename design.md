@@ -32,7 +32,21 @@ This document describes the visual design language for the application. The look
   completely transparent backgrounds and thick outlines reminiscent of Winamp
   skins, since backgrounds will always be sprite based.
 - Navigation should appear as a set of small tabs or buttons styled with the same pixel-art look.
-- Ensure the layout scales well on mobile devices so the interface remains usable on small screens.
+
+## Fixed Resolution Layout
+
+- Design for a base landscape resolution of **1920×1080**. All interface
+  components must be absolutely positioned within this canvas.
+- Wrap the entire UI in a single container that scales uniformly using
+  `transform: scale(...)` based on the user's viewport while preserving the
+  16:9 aspect ratio. This keeps sprite edges crisp and maintains consistent
+  alignment.
+- Responsive techniques such as flexbox, grid or media queries should not be
+  used. Positioning is deterministic to ensure pixel-perfect rendering, much
+  like classic Winamp skins or early web games such as Travian.
+- An optional portrait variant may be provided at **1080×1920** if required.
+- This approach favors clarity and determinism, making it straightforward to
+  achieve exact visual alignment of sprite-based assets.
 
 ## Sprites
 
