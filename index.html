@@ -41,6 +41,8 @@
       padding:1rem;
       width:90%;
       max-width:300px;
+      position:relative;
+      z-index:1;
     }
     @media(min-width:600px){
       h1{font-size:1.5rem;}
@@ -64,6 +66,7 @@
     bg.style.height = '100vh';
     bg.style.width = 'auto';
     bg.style.pointerEvents = 'none';
+    bg.style.zIndex = '-1';
     loadSprite('Shia', bg);
   </script>
 </body>
