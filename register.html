@@ -55,9 +55,17 @@
       <p class="center"><a href="login.html">Login</a></p>
     </form>
   </div>
+  <img id="bg-sprite" alt="" />
   <script src="sprite-loader.js"></script>
   <script>
-    loadBackground('Shia');
+    const bg = document.getElementById('bg-sprite');
+    bg.style.position = 'fixed';
+    bg.style.left = 0;
+    bg.style.bottom = 0;
+    bg.style.height = '100vh';
+    bg.style.width = 'auto';
+    bg.style.pointerEvents = 'none';
+    loadSprite('Shia', bg);
   </script>
 </body>
 </html>
