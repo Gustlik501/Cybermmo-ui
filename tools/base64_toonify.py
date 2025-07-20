@@ -9,6 +9,7 @@ import argparse
 import base64
 from io import BytesIO
 from pathlib import Path
+import sys
 
 import cv2
 import numpy as np
@@ -59,7 +60,7 @@ def read_base64(path: str | None) -> bytes:
     if path:
         data = Path(path).read_text().strip()
     else:
-        data = input().strip()
+        data = sys.stdin.read().strip()
     return base64.b64decode(data)
 
 
@@ -78,10 +79,22 @@ def main() -> None:
     args = parser.parse_args()
 
     img_bytes = read_base64(args.input)
-    img = Image.open(BytesIO(img_bytes)).convert("RGB")
-    arr = np.array(img)
-    toon = stylize_array(arr)
-    result = Image.fromarray(toon)
+    img = Image.open(BytesIO(img_bytes))
+
+    alpha = None
+    if img.mode == "RGBA":
+        alpha = np.array(img)[:, :, 3]
+        rgb_arr = np.array(img.convert("RGB"))
+    else:
+        rgb_arr = np.array(img.convert("RGB"))
+
+    toon_rgb = stylize_array(rgb_arr)
+
+    if alpha is not None:
+        toon = np.dstack((toon_rgb, alpha))
+        result = Image.fromarray(toon, mode="RGBA")
+    else:
+        result = Image.fromarray(toon_rgb)
     buf = BytesIO()
     result.save(buf, format="PNG")
     write_base64(buf.getvalue(), args.output)
