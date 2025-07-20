@@ -9,6 +9,7 @@ This document describes the visual design language for the application. The look
 - Rounded rectangles and beveled edges should be prominent.
 - Apply subtle gradients to create a faux-3D effect.
 - Use small, pixel-art icons for buttons and controls.
+- Use [xp.css](https://github.com/botoxparty/xp.css) to style tabs, buttons, and other controls, but avoid using its window components.
 
 ## Color Palette
 
