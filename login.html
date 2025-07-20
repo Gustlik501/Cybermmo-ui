@@ -14,13 +14,16 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      height:100vh;
+      min-height:100vh;
+      margin:0;
+      padding:1rem;
     }
     .panel {
       background:#111;
       border:1px solid #444;
       padding:1rem;
-      width:300px;
+      width:90%;
+      max-width:300px;
     }
     label, input {
       display:block;
@@ -34,6 +37,7 @@
 </head>
 <body>
   <div class="panel">
+    <img id="login-icon" width="24" height="24" alt="login" style="display:block;margin:0 auto 0.5rem;">
     <h2 class="center">Login</h2>
     <form>
       <label for="username">Username</label>
@@ -46,5 +50,7 @@
       <p class="center"><a href="register.html">Register</a></p>
     </form>
   </div>
+  <script src="sprite-loader.js"></script>
+  <script>loadSprite('blue-square', document.getElementById('login-icon'));</script>
 </body>
 </html>
