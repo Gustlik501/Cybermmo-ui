@@ -24,4 +24,4 @@ function renderSprite(name, originX, originY, zIndex, fit = 0, scale = 1) {
   return img;
 }
 
-renderSprite('shia-toonified', 0, 0, -1, 0, 1);
+renderSprite('Shia', 0, 0, -1, 0, 1);
