@@ -36,7 +36,8 @@ All images and icons should be stored in the `sprites/` directory as Base64-enco
 - Each sprite should have a descriptive name ending in `.txt` (e.g. `play-button.txt`).
 - The text file contains only the Base64 string of the image data.
 - When loading sprites in the application, read the Base64 contents and create an `img` element via `src="data:image/png;base64,<contents>"`.
-- Sprites should be used heavily to recreate the feel of old Winamp skins.
+- Focus on large background sprites featuring cyber‑style characters. Think of the vibe of shows like *Cowboy Bebop* as a placeholder. Small decorative icons are optional and can be omitted.
+- Controls and panels should match these backgrounds so the interface feels cohesive.
 
 ## Consistency
 
