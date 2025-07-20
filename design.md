@@ -39,13 +39,9 @@ This document describes the visual design language for the application. The look
   fixed-size area and is centered horizontally within the viewport.
 - Do not scale the UI. All components are absolutely positioned to maintain
   pixel-perfect alignment using sprite-based assets.
-- The outer frame (unused side margins) should display neutral or thematic
-  background visuals—such as textures or ambient illustrations—to fill the
-  remaining screen width.
-- Responsive techniques like flexbox, grid, or scaling transforms should not be
-  used. This static layout mirrors early 2000s browser games like Travian or
-  Urban Rivals, ensuring consistent visuals across displays.
-
+- The outer frame (unused side margins) should display neutral or thematic background visuals—such as textures or ambient illustrations—to fill the remaining screen width.
+- Responsive techniques like flexbox, grid, or scaling transforms should not be used. This static layout mirrors early 2000s browser games like Travian or Urban Rivals, ensuring consistent visuals across displays.
+- On small screens, horizontal scrolling is acceptable; the layout must remain at native scale.
 ## Sprites
 
 All images and icons should be stored in the `sprites/` directory as Base64-encoded text files to avoid storing binary files in the repository.
