@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Cybermmo</title>
+  <link rel="stylesheet" href="https://unpkg.com/xp.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background:#000;
+      color:#0ff;
+      font-family:'Press Start 2P', monospace;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .panel {
+      background:#111;
+      border:1px solid #444;
+      padding:1rem;
+      width:300px;
+    }
+    label, input {
+      display:block;
+      width:100%;
+      margin-bottom:0.5rem;
+    }
+    .center {
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h2 class="center">Register</h2>
+    <form>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" name="confirm">
+      <div class="center">
+        <button type="submit">Register</button>
+      </div>
+      <p class="center"><a href="login.html">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
