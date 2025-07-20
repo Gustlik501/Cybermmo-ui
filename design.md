@@ -37,8 +37,11 @@ This document describes the visual design language for the application. The look
 
 - Design for a base resolution of **900×600–720**. The active UI occupies this
   fixed-size area and is centered horizontally within the viewport.
-- Do not scale the UI. All components are absolutely positioned to maintain
-  pixel-perfect alignment using sprite-based assets.
+- Do not scale the UI. All components should be positioned with fixed pixel
+  values to maintain sprite alignment. The main viewport element itself should
+  remain in normal document flow (not absolutely positioned) so the page width
+  expands to the full 900px. This ensures horizontal scrolling works correctly
+  on narrow displays.
 - The outer frame (unused side margins) should display neutral or thematic background visuals—such as textures or ambient illustrations—to fill the remaining screen width.
 - Responsive techniques like flexbox, grid, or scaling transforms should not be used. This static layout mirrors early 2000s browser games like Travian or Urban Rivals, ensuring consistent visuals across displays.
 - On small screens, horizontal scrolling is acceptable; the layout must remain at native scale.

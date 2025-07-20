@@ -1,17 +1,16 @@
 body {
   margin: 0;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: #222;
   color: #0ff;
   font-family: 'Pixelated MS Sans Serif', 'MS Sans Serif', Tahoma, sans-serif;
 }
 #viewport {
-  position: absolute;
+  position: relative;
   width: 900px;
   height: 720px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   background: #000;
 }
 .panel {
