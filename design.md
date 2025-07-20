@@ -27,6 +27,7 @@ This document describes the visual design language for the application. The look
 - Keep UI elements compact, with small padding and margins.
 - Group related controls into window-like panels with thin borders.
 - Navigation should appear as a set of small tabs or buttons styled with the same pixel-art look.
+- Ensure the layout scales well on mobile devices so the interface remains usable on small screens.
 
 ## Sprites
 
@@ -35,6 +36,7 @@ All images and icons should be stored in the `sprites/` directory as Base64-enco
 - Each sprite should have a descriptive name ending in `.txt` (e.g. `play-button.txt`).
 - The text file contains only the Base64 string of the image data.
 - When loading sprites in the application, read the Base64 contents and create an `img` element via `src="data:image/png;base64,<contents>"`.
+- Sprites should be used heavily to recreate the feel of old Winamp skins.
 
 ## Consistency
 
