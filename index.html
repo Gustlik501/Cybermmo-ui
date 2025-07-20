@@ -5,49 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybermmo</title>
   <link rel="stylesheet" href="https://unpkg.com/98.css">
-  <style>
-    body {
-      margin: 0;
-      overflow-x: auto;
-      overflow-y: hidden;
-      background: #222;
-      color: #0ff;
-      font-family: 'Pixelated MS Sans Serif', 'MS Sans Serif', Tahoma, sans-serif;
-    }
-    #viewport {
-      position: absolute;
-      width: 900px;
-      height: 720px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #000;
-    }
-    .panel {
-      position: absolute;
-      top: 200px;
-      left: 250px;
-      width: 400px;
-      padding: 1rem;
-      background: transparent;
-      border: 3px solid #0ff;
-      border-radius: 6px;
-    }
-    .btn {
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1.25rem;
-    }
-    h1 {
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
-      text-align: center;
-    }
-    p {
-      margin-bottom: 1.5rem;
-      text-align: center;
-      font-size: 1.25rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="viewport">
@@ -60,22 +18,6 @@
   </div>
   <img id="bg-sprite" alt="" />
   <script src="sprite-loader.js"></script>
-  <script>
-    const viewport = document.getElementById('viewport');
-    const bg = document.getElementById('bg-sprite');
-    function positionSprite() {
-      const bottomOffset = window.innerHeight - (viewport.offsetTop + viewport.offsetHeight);
-      bg.style.bottom = bottomOffset + 'px';
-    }
-    bg.style.position = 'fixed';
-    bg.style.left = 0;
-    bg.style.height = '100vh';
-    bg.style.width = 'auto';
-    bg.style.pointerEvents = 'none';
-    bg.style.zIndex = '-1';
-    positionSprite();
-    window.addEventListener('resize', positionSprite);
-    loadSprite('Shia', bg);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
