@@ -7,29 +7,28 @@
   <link rel="stylesheet" href="https://unpkg.com/98.css">
   <style>
     body {
-      background:#000;
-      color:#0ff;
-      font-family:'Pixelated MS Sans Serif', 'MS Sans Serif', Tahoma, sans-serif;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      margin:0;
-      padding:1rem;
-      box-sizing:border-box;
-      background-attachment:fixed;
-      background-repeat:no-repeat;
-      background-position:center;
-      background-size:cover;
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      color: #0ff;
+      font-family: 'Pixelated MS Sans Serif', 'MS Sans Serif', Tahoma, sans-serif;
+    }
+    #viewport {
+      position: absolute;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: top left;
     }
     .panel {
-      background:transparent;
-      border:3px solid #0ff;
-      padding:1rem;
-      width:90%;
-      max-width:300px;
-      position:relative;
-      z-index:1;
+      position: absolute;
+      top: 340px;
+      left: 810px;
+      width: 300px;
+      padding: 1rem;
+      background: transparent;
+      border: 3px solid #0ff;
+      border-radius: 6px;
+      z-index: 1;
     }
     label, input {
       display:block;
@@ -42,24 +41,33 @@
   </style>
 </head>
 <body>
-  <div class="panel">
-    <h2 class="center">Register</h2>
-    <form>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password">
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" name="confirm">
-      <div class="center">
-        <button type="submit">Register</button>
-      </div>
-      <p class="center"><a href="login.html">Login</a></p>
-    </form>
+  <div id="viewport">
+    <div class="panel">
+      <h2 class="center">Register</h2>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm">
+        <div class="center">
+          <button type="submit">Register</button>
+        </div>
+        <p class="center"><a href="login.html">Login</a></p>
+      </form>
+    </div>
   </div>
   <img id="bg-sprite" alt="" />
   <script src="sprite-loader.js"></script>
   <script>
+    const viewport = document.getElementById('viewport');
+    function scaleUI() {
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      viewport.style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('resize', scaleUI);
+    scaleUI();
     const bg = document.getElementById('bg-sprite');
     bg.style.position = 'fixed';
     bg.style.left = 0;
