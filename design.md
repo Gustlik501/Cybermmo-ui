@@ -5,11 +5,11 @@ This document describes the visual design language for the application. The look
 ## Layout and Style
 
 - Use dark backgrounds with neon or metallic accents.
-- Opt for pixel fonts or bitmap-style fonts reminiscent of the era.
+- Opt for fonts similar to Windows 98, such as **Tahoma** or **MS Sans Serif**.
 - Rounded rectangles and beveled edges should be prominent.
 - Apply subtle gradients to create a faux-3D effect.
 - Use small, pixel-art icons for buttons and controls.
-- Use [xp.css](https://github.com/botoxparty/xp.css) to style tabs, buttons, and other controls, but avoid using its window components.
+- Use [98.css](https://github.com/jdan/98.css) to style tabs, buttons, and other controls, but avoid using its window components.
 
 ## Color Palette
 
@@ -19,7 +19,7 @@ This document describes the visual design language for the application. The look
 
 ## Typography
 
-- Primary font should mimic a pixel or 8-bit look, such as `Press Start 2P` or similar.
+- Primary font should use a Windows 98-style sans-serif font like `Tahoma` or `MS Sans Serif`.
 - Headers can use a slightly larger size but keep them blocky and minimal.
 
 ## Layout Rules
