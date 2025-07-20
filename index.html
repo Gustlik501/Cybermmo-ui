@@ -15,14 +15,15 @@
     }
     #viewport {
       position: absolute;
-      width: 1920px;
-      height: 1080px;
-      transform-origin: top left;
+      width: 900px;
+      height: 720px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .panel {
       position: absolute;
-      top: 400px;
-      left: 760px;
+      top: 200px;
+      left: 250px;
       width: 400px;
       padding: 1rem;
       background: transparent;
@@ -58,13 +59,6 @@
   <img id="bg-sprite" alt="" />
   <script src="sprite-loader.js"></script>
   <script>
-    const viewport = document.getElementById('viewport');
-    function scaleUI() {
-      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-      viewport.style.transform = `scale(${scale})`;
-    }
-    window.addEventListener('resize', scaleUI);
-    scaleUI();
     const bg = document.getElementById('bg-sprite');
     bg.style.position = 'fixed';
     bg.style.left = 0;
