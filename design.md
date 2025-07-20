@@ -9,6 +9,9 @@ This document describes the visual design language for the application. The look
 - Rounded rectangles and beveled edges should be prominent.
 - Apply subtle gradients to create a faux-3D effect.
 - Use small, pixel-art icons for buttons and controls.
+- Windows, panes and other panels should be completely transparent with thick
+  outlines like in Winamp since sprite-based backgrounds will provide the
+  backdrop.
 - Use [98.css](https://github.com/jdan/98.css) to style tabs, buttons, and other controls, but avoid using its window components.
 
 ## Color Palette
@@ -25,7 +28,9 @@ This document describes the visual design language for the application. The look
 ## Layout Rules
 
 - Keep UI elements compact, with small padding and margins.
-- Group related controls into window-like panels with thin borders.
+- Group related controls into window-like panels. These panels should have
+  completely transparent backgrounds and thick outlines reminiscent of Winamp
+  skins, since backgrounds will always be sprite based.
 - Navigation should appear as a set of small tabs or buttons styled with the same pixel-art look.
 - Ensure the layout scales well on mobile devices so the interface remains usable on small screens.
 
