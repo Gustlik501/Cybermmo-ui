@@ -40,9 +40,20 @@
   <img id="logo" width="32" height="32" alt="logo">
   <h1>Cybermmo</h1>
   <p>Welcome to Cybermmo!</p>
+  <div>
+    <img id="disk" width="32" height="32" alt="disk">
+    <img id="screen" width="32" height="32" alt="screen">
+    <img id="robot" width="32" height="32" alt="robot">
+  </div>
   <a href="login.html"><button class="btn">Login</button></a>
   <a href="register.html"><button class="btn">Register</button></a>
   <script src="sprite-loader.js"></script>
-  <script>loadSprite('cyber-logo', document.getElementById('logo'));</script>
+  <script>
+    loadSprite('cyber-logo', document.getElementById('logo'));
+    loadSprite('neon-disk', document.getElementById('disk'));
+    loadSprite('holo-screen', document.getElementById('screen'));
+    loadSprite('robot-head', document.getElementById('robot'));
+    loadBackground('cyber-background');
+  </script>
 </body>
 </html>
