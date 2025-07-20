@@ -19,7 +19,7 @@ This document describes the visual design language for the application. The look
 
 ## Typography
 
-- Primary font should mimic a pixel or 8-bit look, such as `Press Start 2P` or similar.
+- Primary font should mimic the pixelated style of Windows 98, such as `"Pixelated MS Sans Serif"` from 98.css.
 - Headers can use a slightly larger size but keep them blocky and minimal.
 
 ## Layout Rules
