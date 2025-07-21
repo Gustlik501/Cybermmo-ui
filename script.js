@@ -80,3 +80,41 @@ class SimpleBorder extends HTMLElement {
 
 customElements.define('simple-border', SimpleBorder);
 
+// Basic drawing utilities
+function drawRect(x, y, width, height, color = '#0ff', zIndex = 30) {
+  const div = document.createElement('div');
+  Object.assign(div.style, {
+    position: 'absolute',
+    left: `${x}px`,
+    bottom: `${y}px`,
+    width: `${width}px`,
+    height: `${height}px`,
+    boxSizing: 'border-box',
+    border: `1px solid ${color}`,
+    pointerEvents: 'none',
+    zIndex: String(zIndex)
+  });
+  viewport.appendChild(div);
+  return div;
+}
+
+function drawLine(x1, y1, x2, y2, color = '#0ff', width = 2, zIndex = 30) {
+  const length = Math.hypot(x2 - x1, y2 - y1);
+  const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+  const div = document.createElement('div');
+  Object.assign(div.style, {
+    position: 'absolute',
+    left: `${x1}px`,
+    bottom: `${y1}px`,
+    width: `${length}px`,
+    height: `${width}px`,
+    background: color,
+    transformOrigin: '0 0',
+    transform: `rotate(${angle}deg)`,
+    pointerEvents: 'none',
+    zIndex: String(zIndex)
+  });
+  viewport.appendChild(div);
+  return div;
+}
+

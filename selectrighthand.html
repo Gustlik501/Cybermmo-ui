@@ -6,33 +6,6 @@
   <title>Select Right Hand - Cybermmo</title>
   <link rel="stylesheet" href="https://unpkg.com/98.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-    #left-half, #right-half {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      box-sizing: border-box;
-      padding: 1rem;
-    }
-    /* Left side slightly narrower with border */
-    #left-half {
-      left: 0;
-      width: 45%;
-      border-right: 3px solid #0ff;
-    }
-    #right-half {
-      right: 0;
-      width: 55%;
-      text-align: center;
-      border-left: 3px solid #0ff;
-    }
-    #preview-frame { text-align: center; margin-bottom: 1rem; }
-    #char-preview { width: 180px; }
-    #stats-frame p { margin: 0.25rem 0; }
-    .thumb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .thumb { display: flex; flex-direction: column; align-items: center; }
-    .thumb img { width: 80px; height: 80px; }
-  </style>
 </head>
 <body>
   <div id="viewport">
@@ -72,6 +45,8 @@
         </label>
       </div>
     </div>
+    <simple-border target="#left-half" border="3px solid #0ff" border-radius="0"></simple-border>
+    <simple-border target="#right-half" border="3px solid #0ff" border-radius="0"></simple-border>
   </div>
   <script src="script.js"></script>
   <script>
