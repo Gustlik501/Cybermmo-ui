@@ -70,6 +70,7 @@ class SimpleBorder extends HTMLElement {
     style.left = `${rect.left - parentRect.left}px`;
     style.width = `${rect.width}px`;
     style.height = `${rect.height}px`;
+    style.boxSizing = 'border-box';
     style.border = border;
     style.borderRadius = borderRadius;
     style.pointerEvents = 'none';
