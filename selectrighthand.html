@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Right Hand - Cybermmo</title>
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #left-half, #right-half {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+    }
+    #left-half { left: 0; }
+    #right-half { right: 0; text-align: center; }
+    #preview-frame { text-align: center; margin-bottom: 1rem; }
+    #stats-frame p { margin: 0.25rem 0; }
+    .thumb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .thumb { display: flex; flex-direction: column; align-items: center; }
+    .thumb img { width: 80px; height: 80px; }
+  </style>
+</head>
+<body>
+  <div id="viewport">
+    <img id="bg-sprite" alt="" />
+    <div id="left-half">
+      <div id="preview-frame">
+        <img id="char-preview" alt="Preview">
+      </div>
+      <div id="stats-frame">
+        <p><strong id="char-name">Shia</strong></p>
+        <p>Bonus: +10% hacking speed</p>
+        <p>Bonus: +5% credits</p>
+      </div>
+    </div>
+    <div id="right-half">
+      <h2>Choose your right hand</h2>
+      <div class="thumb-grid">
+        <label class="thumb">
+          <input type="radio" name="righthand" value="Shia" checked>
+          <img alt="Shia">
+          <span>Shia</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const preview = document.getElementById('char-preview');
+      document.querySelectorAll('.thumb input[type=radio]').forEach(r => {
+        const img = r.parentElement.querySelector('img');
+        loadSprite(r.value, img);
+        if(r.checked) loadSprite(r.value, preview);
+        r.addEventListener('change', () => {
+          if(r.checked) loadSprite(r.value, preview);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

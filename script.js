@@ -80,5 +80,3 @@ class SimpleBorder extends HTMLElement {
 
 customElements.define('simple-border', SimpleBorder);
 
-// Example usage (you can remove this line from the file if not needed)
-renderSprite('Shia', 0, 0, 20);
