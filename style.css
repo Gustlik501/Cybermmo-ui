@@ -110,7 +110,7 @@ html {
 }
 
 #char-preview {
-  width: 180px;
+  width: 100%;
 }
 
 #stats-frame p {
@@ -132,4 +132,9 @@ html {
 .thumb img {
   width: 80px;
   height: 80px;
+}
+
+.thumb input[type=radio] {
+  width: auto;
+  margin-top: 0.25rem;
 }

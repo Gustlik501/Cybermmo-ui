@@ -24,29 +24,29 @@
       <h2>Choose your right hand</h2>
       <div class="thumb-grid">
         <label class="thumb">
-          <input type="radio" name="righthand" value="Shia" data-sprite="Shia" checked>
           <img alt="Shia">
           <span>Shia</span>
+          <input type="radio" name="righthand" value="Shia" data-sprite="Shia" checked>
         </label>
         <label class="thumb">
-          <input type="radio" name="righthand" value="Nova" data-sprite="Shia">
           <img alt="Nova">
           <span>Nova</span>
+          <input type="radio" name="righthand" value="Nova" data-sprite="Shia">
         </label>
         <label class="thumb">
-          <input type="radio" name="righthand" value="Zero" data-sprite="shia-toonified">
           <img alt="Zero">
           <span>Zero</span>
+          <input type="radio" name="righthand" value="Zero" data-sprite="shia-toonified">
         </label>
         <label class="thumb">
-          <input type="radio" name="righthand" value="Echo" data-sprite="Shia">
           <img alt="Echo">
           <span>Echo</span>
+          <input type="radio" name="righthand" value="Echo" data-sprite="Shia">
         </label>
         <label class="thumb">
-          <input type="radio" name="righthand" value="Deno" data-sprite="shia-denoised">
           <img alt="Deno">
           <span>Deno</span>
+          <input type="radio" name="righthand" value="Deno" data-sprite="shia-denoised">
         </label>
       </div>
     </div>
@@ -58,6 +58,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       const preview = document.getElementById('char-preview');
       const nameField = document.getElementById('char-name');
+      const leftHalf = document.getElementById('left-half');
+      const previewFrame = document.getElementById('preview-frame');
       document.querySelectorAll('.thumb input[type=radio]').forEach(r => {
         const img = r.parentElement.querySelector('img');
         const sprite = r.dataset.sprite || r.value;
@@ -73,6 +75,13 @@
           }
         });
       });
+
+      const viewportRect = viewport.getBoundingClientRect();
+      const leftRect = leftHalf.getBoundingClientRect();
+      const previewRect = previewFrame.getBoundingClientRect();
+      const lineY = viewportRect.height - (previewRect.bottom - viewportRect.top);
+      drawLine(leftRect.left - viewportRect.left, lineY,
+               leftRect.right - viewportRect.left, lineY);
     });
   </script>
 </body>
