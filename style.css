@@ -51,7 +51,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
  
-  /
+  
   
   width: 400px;
   padding: 1rem;
@@ -60,14 +60,14 @@ body {
 .panel-bg {
   position: absolute;
   inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
-  background: #000;
   border: 3px solid #0ff;
   border-radius: 6px;
   z-index: 5;
 }
 
 .panel-content {
-  position: relative;
+  position: absolute;
+  insert: 0;
   z-index: 30;
   padding: 1rem;
 }
