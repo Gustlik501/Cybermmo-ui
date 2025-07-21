@@ -28,3 +28,16 @@ python3 tools/base64_toonify.py input.txt output.txt
 
 Omit `input.txt` to read from standard input or omit `output.txt` to write the
 base64 result to standard output.
+
+## `base64_denoise.py`
+
+Applies a 3x3 median filter to an image provided as a Base64 string. This helps remove salt-and-pepper noise while preserving edges. The processed image is returned as another Base64 string.
+
+### Usage
+
+```bash
+# Read base64 data from input.txt and write the denoised result to output.txt
+python3 tools/base64_denoise.py input.txt output.txt
+```
+
+Omit `input.txt` to read from standard input or omit `output.txt` to write the result to standard output.
