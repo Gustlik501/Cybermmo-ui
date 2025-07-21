@@ -12,7 +12,8 @@ async function loadSprite(name, imgEl) {
 }
 
 // Render a sprite at a given position with optional fit/scale
-function renderSprite(name, originX, originY, zIndex, fit = 0, scale = 1) {
+// zIndex defaults to 20 so sprites appear between the panel and its contents
+function renderSprite(name, originX, originY, zIndex = 20, fit = 0, scale = 1) {
   const img = document.createElement('img');
   img.style.position = 'absolute';
   img.style.left = `${originX}px`;
@@ -49,4 +50,4 @@ async function loadBackground(name, element = document.body) {
 }
 
 // Example usage (you can remove this line from the file if not needed)
-renderSprite('Shia', 0, 0, 3);
+renderSprite('Shia', 0, 0, 20);
