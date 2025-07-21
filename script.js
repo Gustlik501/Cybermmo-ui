@@ -49,4 +49,4 @@ async function loadBackground(name, element = document.body) {
 }
 
 // Example usage (you can remove this line from the file if not needed)
-renderSprite('Shia', 0, 0, -1);
+renderSprite('Shia', 0, 0, 3);
