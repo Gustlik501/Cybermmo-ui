@@ -49,5 +49,29 @@ async function loadBackground(name, element = document.body) {
   }
 }
 
+// Simple border overlay component
+class SimpleBorder extends HTMLElement {
+  connectedCallback() {
+    const selector = this.getAttribute('target');
+    const zIndex = this.getAttribute('z-index') || '10';
+    const target = document.querySelector(selector);
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const style = this.style;
+
+    style.position = 'absolute';
+    style.top = `${rect.top}px`;
+    style.left = `${rect.left}px`;
+    style.width = `${rect.width}px`;
+    style.height = `${rect.height}px`;
+    style.border = '2px solid red';
+    style.pointerEvents = 'none';
+    style.zIndex = zIndex;
+  }
+}
+
+customElements.define('simple-border', SimpleBorder);
+
 // Example usage (you can remove this line from the file if not needed)
 renderSprite('Shia', 0, 0, 20);
