@@ -58,14 +58,16 @@ class SimpleBorder extends HTMLElement {
     if (!target) return;
 
     const rect = target.getBoundingClientRect();
+    const parentRect = this.parentElement.getBoundingClientRect();
     const style = this.style;
 
     const border = this.getAttribute('border') || '2px solid red';
     const borderRadius = this.getAttribute('border-radius') || '0';
 
     style.position = 'absolute';
-    style.top = `${rect.top}px`;
-    style.left = `${rect.left}px`;
+    // Position relative to the parent element so the border matches the target
+    style.top = `${rect.top - parentRect.top}px`;
+    style.left = `${rect.left - parentRect.left}px`;
     style.width = `${rect.width}px`;
     style.height = `${rect.height}px`;
     style.border = border;
