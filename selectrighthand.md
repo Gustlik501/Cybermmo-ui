@@ -5,7 +5,7 @@ This page is shown immediately after a user completes registration. The layout f
 ## Left Half
 
 * **Character Preview** – a large frame at the top displays the currently selected character's full‑body sprite.
-* **Stats & Description** – a frame below the preview shows text fields for stats (e.g., HP, attack, defence) and a short background description.
+* **Stats & Description** – a frame below the preview shows the character's passive bonuses (e.g., "10% faster hacking", "5% more credits") along with a short background description.
 
 ## Right Half
 
@@ -26,8 +26,8 @@ This page is shown immediately after a user completes registration. The layout f
 |                             |  [thumb] Name (O)  [thumb] Name|
 |-----------------------------+--------------------------------|
 |   Stats and description     |                                |
-|   HP: ???                   |                                |
-|   ATK: ???                  |                                |
+|   Bonus: +10% hacking speed |                                |
+|   Bonus: +5% credits        |                                |
 |   ...                       |                                |
 +--------------------------------------------------------------+
 ```
