@@ -60,12 +60,16 @@ class SimpleBorder extends HTMLElement {
     const rect = target.getBoundingClientRect();
     const style = this.style;
 
+    const border = this.getAttribute('border') || '2px solid red';
+    const borderRadius = this.getAttribute('border-radius') || '0';
+
     style.position = 'absolute';
     style.top = `${rect.top}px`;
     style.left = `${rect.left}px`;
     style.width = `${rect.width}px`;
     style.height = `${rect.height}px`;
-    style.border = '2px solid red';
+    style.border = border;
+    style.borderRadius = borderRadius;
     style.pointerEvents = 'none';
     style.zIndex = zIndex;
   }
