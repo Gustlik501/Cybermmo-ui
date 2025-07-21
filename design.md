@@ -61,3 +61,17 @@ All images and icons should be stored in the `sprites/` directory as Base64-enco
 - Reuse sprites across pages whenever possible.
 - Keep the window/panel layout consistent to emulate a desktop-app look.
 
+## Implementation Notes
+
+- Pages import `98.css` for basic form and button styling. The neon palette and
+  layout rules are defined in `style.css`.
+- The fixed `#viewport` element is `900×720` and centered with `margin: 0 auto`.
+  Sprites and panels are positioned relative to this container.
+- Transparent panels are centered using `transform: translate(-50%, -50%)` and a
+  custom `<simple-border>` component draws the thick outline around them.
+- Sprites are stored as Base64 text in the `sprites/` directory and loaded at
+  runtime with `loadSprite`, `renderSprite`, and `loadBackground` functions in
+  `script.js`.
+- Z-index values ensure sprites appear beneath panel contents so controls remain
+  interactive while still layering above the background.
+
