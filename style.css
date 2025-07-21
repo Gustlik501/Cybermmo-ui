@@ -33,14 +33,17 @@ body {
   background: transparent;
   border: 3px solid #0ff;
   border-radius: 6px;
+}
+
+.panel-bg {
   z-index: 10;
 }
 
-/* Panel children should appear above sprites */
-.panel > * {
-  position: relative;
+.panel-content {
   z-index: 30;
 }
+
+/* Panel content should appear above sprites via its z-index */
 .btn {
   margin: 0.5rem;
   padding: 0.75rem 1.5rem;
