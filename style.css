@@ -23,6 +23,8 @@ body {
   bottom: 0;
   z-index: 20;
 }
+
+/*
 .panel {
   position: absolute;
   top: 50%;
@@ -41,6 +43,27 @@ body {
 
 .panel-content {
   z-index: 30;
+}/*
+
+.panel {
+  position: relative;
+  width: 400px;
+  /* height grows with content */
+}
+
+.panel-bg {
+  position: absolute;
+  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
+  background: #000;
+  border: 3px solid #0ff;
+  border-radius: 6px;
+  z-index: 5;
+}
+
+.panel-content {
+  position: relative;
+  z-index: 30;
+  padding: 1rem;
 }
 
 /* Panel content should appear above sprites via its z-index */
