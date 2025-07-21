@@ -16,6 +16,13 @@ body {
   background: #000;
   z-index: 10;
 }
+
+#bg-sprite {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+}
 .panel {
   position: absolute;
   top: 50%;
@@ -27,6 +34,12 @@ body {
   border: 3px solid #0ff;
   border-radius: 6px;
   z-index: 10;
+}
+
+/* Panel children should appear above sprites */
+.panel > * {
+  position: relative;
+  z-index: 30;
 }
 .btn {
   margin: 0.5rem;
