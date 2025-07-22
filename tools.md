@@ -41,3 +41,17 @@ python3 tools/base64_denoise.py input.txt output.txt
 ```
 
 Omit `input.txt` to read from standard input or omit `output.txt` to write the result to standard output.
+
+## `base64_mirror.py`
+
+Horizontally flips a Base64 sprite so left becomes right and vice versa.
+
+### Usage
+
+```bash
+# Read base64 data from input.txt and write the mirrored result to output.txt
+python3 tools/base64_mirror.py input.txt output.txt
+```
+
+As with the other tools, omit `input.txt` to read from stdin or omit
+`output.txt` to write the Base64 result to stdout.
