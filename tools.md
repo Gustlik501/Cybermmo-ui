@@ -55,3 +55,17 @@ python3 tools/base64_mirror.py input.txt output.txt
 
 As with the other tools, omit `input.txt` to read from stdin or omit
 `output.txt` to write the Base64 result to stdout.
+
+## `base64_resize.py`
+
+Resizes a Base64 sprite to the given width and height.
+
+### Usage
+
+```bash
+# Resize sprite to 32x32 pixels
+python3 tools/base64_resize.py 32 32 input.txt output.txt
+```
+
+As with the other tools, omit `input.txt` to read from stdin or omit
+`output.txt` to write the Base64 result to stdout.
