@@ -16,8 +16,8 @@
       </div>
       <div id="stats-frame">
         <p><strong id="char-name">Shia</strong></p>
-        <p>Bonus: +10% hacking speed</p>
-        <p>Bonus: +5% credits</p>
+        <p id="char-desc1">Provides a 10% reduction to hiring costs</p>
+        <p id="char-desc2">Good for players who think manipulation and diplomacy is the way.</p>
       </div>
     </div>
     <div id="right-half">
@@ -26,17 +26,23 @@
         <label class="thumb">
           <img alt="Shia">
           <span>Shia</span>
-          <input type="radio" name="righthand" value="Shia" data-sprite="Shia" checked>
+          <input type="radio" name="righthand" value="Shia" data-sprite="Shia" 
+                 data-desc1="Provides a 10% reduction to hiring costs"
+                 data-desc2="Good for players who think manipulation and diplomacy is the way." checked>
         </label>
         <label class="thumb">
           <img alt="Richie">
           <span>Richie</span>
-          <input type="radio" name="righthand" value="Richie" data-sprite="richie">
+          <input type="radio" name="righthand" value="Richie" data-sprite="richie"
+                 data-desc1="Provides 10% boost to black market earnings."
+                 data-desc2="Good for players who belive money solves all problems.">
         </label>
         <label class="thumb">
           <img alt="Bakuto">
           <span>Bakuto</span>
-          <input type="radio" name="righthand" value="Bakuto" data-sprite="bakuto">
+          <input type="radio" name="righthand" value="Bakuto" data-sprite="bakuto"
+                 data-desc1="Provides a 10% boost to troop power"
+                 data-desc2="Good for players aggresive players who value raw power.">
         </label>
       </div>
     </div>
@@ -48,8 +54,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       const preview = document.getElementById('char-preview');
       const nameField = document.getElementById('char-name');
+      const desc1Field = document.getElementById('char-desc1');
+      const desc2Field = document.getElementById('char-desc2');
       const leftHalf = document.getElementById('left-half');
       const previewFrame = document.getElementById('preview-frame');
+      let lineEl;
       document.querySelectorAll('.thumb input[type=radio]').forEach(r => {
         const img = r.parentElement.querySelector('img');
         const sprite = r.dataset.sprite || r.value;
@@ -57,21 +66,36 @@
         if (r.checked) {
           loadSprite(sprite, preview);
           nameField.textContent = r.value;
+          desc1Field.textContent = r.dataset.desc1 || '';
+          desc2Field.textContent = r.dataset.desc2 || '';
         }
         r.addEventListener('change', () => {
           if (r.checked) {
             loadSprite(sprite, preview);
             nameField.textContent = r.value;
+            desc1Field.textContent = r.dataset.desc1 || '';
+            desc2Field.textContent = r.dataset.desc2 || '';
           }
         });
       });
 
-      const viewportRect = viewport.getBoundingClientRect();
-      const leftRect = leftHalf.getBoundingClientRect();
-      const previewRect = previewFrame.getBoundingClientRect();
-      const lineY = viewportRect.height - (previewRect.bottom - viewportRect.top);
-      drawLine(leftRect.left - viewportRect.left, lineY,
-               leftRect.right - viewportRect.left, lineY);
+      function positionLine() {
+        const viewportRect = viewport.getBoundingClientRect();
+        const leftRect = leftHalf.getBoundingClientRect();
+        const charRect = preview.getBoundingClientRect();
+        const lineY = viewportRect.height - (charRect.bottom - viewportRect.top);
+        if (!lineEl) {
+          lineEl = drawLine(leftRect.left - viewportRect.left, lineY,
+                            leftRect.right - viewportRect.left, lineY);
+        } else {
+          lineEl.style.left = `${leftRect.left - viewportRect.left}px`;
+          lineEl.style.bottom = `${lineY}px`;
+          lineEl.style.width = `${leftRect.right - leftRect.left}px`;
+        }
+      }
+
+      preview.addEventListener('load', positionLine);
+      window.addEventListener('resize', positionLine);
     });
   </script>
 </body>
