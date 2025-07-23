@@ -58,7 +58,8 @@ As with the other tools, omit `input.txt` to read from stdin or omit
 
 ## `base64_resize.py`
 
-Resizes a Base64 sprite to the given width and height.
+Resizes a Base64 sprite to the given width and height. When shrinking an image
+the script automatically uses a high-quality Lanczos filter to reduce aliasing.
 
 ### Usage
 

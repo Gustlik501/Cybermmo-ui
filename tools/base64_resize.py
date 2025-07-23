@@ -37,7 +37,13 @@ def main() -> None:
     img_bytes = read_base64(args.input)
     img = Image.open(BytesIO(img_bytes))
 
-    resized = img.resize((args.width, args.height), Image.NEAREST)
+    # Use high-quality resampling when shrinking to avoid aliasing artifacts.
+    if args.width < img.width or args.height < img.height:
+        resample = Image.LANCZOS
+    else:
+        resample = Image.NEAREST
+
+    resized = img.resize((args.width, args.height), resample)
 
     buf = BytesIO()
     resized.save(buf, format="PNG")
