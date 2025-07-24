@@ -4,13 +4,17 @@ This document defines a precise gameplay loop combining Travian-style resource m
 
 ## Resources
 
-Players manage three primary resources:
+Cash is the only universal currency. The hideout generates it passively while
+you're offline:
 
 | Resource | Produced by | Base/hr at level 1 | Scaling per level |
-|---------|-------------|------------------|------------------|
+|---------|-------------|-------------------|------------------|
 | Cash (¥) | Hideout | 100 | `100 * level^1.10` |
-| Materials | Workshop | 30 | `30 * level^1.12` |
-| Influence | Safehouse | 5 | `5 * level^1.15` |
+
+Other commodities are produced separately by specialized buildings—drug labs,
+brothels, chop shops and so on. Each commodity works like Idle Pixel's
+item-based resources: it accrues over time at a rate of
+`base_amount * level^scaling` and can be collected whenever you return.
 
 Each building upgrade costs `base_cost * 1.6^(level-1)` and takes `base_time * level^1.5` minutes to complete. Buildings may be queued but only one upgrade runs at a time.
 
@@ -18,23 +22,26 @@ Each building upgrade costs `base_cost * 1.6^(level-1)` and takes `base_time * l
 
 | Action | Base Duration | Reward Formula | Failure Penalty |
 |-------|--------------|---------------|----------------|
-| Pickpocket | 3 min | `50 + 10*char_level` cash | −2 Influence |
-| Rob Store | 10 min | `150 + 25*char_level` cash, 1–3 Materials | 5% injury risk |
-| Heist | 30 min | `500 + 50*char_level` cash, 5–8 Materials, +3 Influence | 15% injury, lose half rewards |
-| Attack Rival | 15 min | Steal up to 20% of target cash and materials | Lose 10% of own cash on failure |
+| Pickpocket | 3 min | `50 + 10*hero_level` cash | small heat increase |
+| Rob Store | 10 min | `150 + 25*hero_level` cash, chance for common commodities | 5% injury risk |
+| Heist | 30 min | `500 + 50*hero_level` cash, rare commodities | 15% injury, lose half rewards |
+| Attack Rival | 15 min | Steal up to 20% of target cash and commodities | Lose 10% of own cash on failure |
 
-Success chance is `Power / (Power + Difficulty)`. `Power` comes from character stats plus weapon bonuses. Difficulty scales with target level and action type.
+Success chance is `Power / (Power + Difficulty)`. `Power` comes from your right hand's stats and equipped weapons. Difficulty scales with target level and action type.
 
 ## Itemization
 
-Items drop from crimes and fights and follow a Diablo-style system:
+The player has no personal stats. Instead, the selected right hand acts as a
+hero—much like the hero unit in Travian—and carries all gear and levels. Items
+dropped from crimes and fights follow a Diablo-style system. Gear is equipped
+only by your right hand and directly influences their power:
 
 - **Rarities:** Common, Rare, Epic, Legendary (multipliers: ×1, ×1.5, ×2, ×3).
-- **Item Level:** equal to the player's level when found. Base stat is `item_level * rarity_multiplier`.
-- **Affixes:** Up to 3 random modifiers. Example: `+5% crit`, `+2–4 damage`, `+1 Influence per hour`.
+- **Item Level:** equal to the right hand's level when found. Base stat is `item_level * rarity_multiplier`.
+- **Affixes:** Up to 3 random modifiers. Example: `+5% crit`, `+2–4 damage`, `+1 commodity per hour`.
 - **Set Bonuses:** Collecting full item sets grants extra bonuses like `+10% success chance`.
 
-Items can be upgraded using Materials: each upgrade adds `+10%` to all stats and costs `5 * upgrade_level` Materials.
+Items can be upgraded using cash: each upgrade adds `+10%` to all stats and costs `500 * upgrade_level` cash.
 
 ## Loop Summary
 
